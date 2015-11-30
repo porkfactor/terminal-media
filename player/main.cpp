@@ -8,7 +8,5 @@ extern void import(void);
 int main(int argc, char **argv) {
   media::Log(media::Logger::INFO, L"starting");
 
-  import();
-
   return 0;
 }

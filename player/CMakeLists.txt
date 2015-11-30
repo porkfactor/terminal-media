@@ -6,15 +6,16 @@ include_directories(
 
 add_executable(player
   system/Logger.cpp
-  import/banshee.cpp
   model/Album.cpp
   model/Artist.cpp
   model/AudioResource.cpp
+  model/Library.cpp
   model/MediaResource.cpp
   main.cpp
 )
 
+add_subdirectory(plugins)
+
 target_link_libraries(player
-  sqlite3
 )
 
