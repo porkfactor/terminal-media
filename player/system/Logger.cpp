@@ -21,10 +21,10 @@ namespace terminal {
 
       std::strftime(buf, sizeof(buf), "%c %Z", std::localtime(&now_c));
 
-      std::wcout
-        << L"LOG : "
+      std::cout
+        << u8"LOG : "
         << buf
-        << L" : " << format.c_str()
+        << u8" : " << format.c_str()
         << std::endl;
     }
   }

@@ -5,10 +5,17 @@
 
 namespace terminal {
   namespace media {
+    class LogDevice {
+    public:
+      virtual ~LogDevice() = default;
+    };
+
     class Logger {
     public:
       typedef enum {
-        INFO
+        INFO                           = (0x1 << 0),
+        ERROR                          = (0x1 << 1),
+        WARNING                        = (0x1 << 2)
       } severity_type;
 
       Logger();

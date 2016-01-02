@@ -10,7 +10,7 @@ namespace terminal {
     class Artist;
     class AudioResource;
 
-    typedef std::wstring string;
+    typedef std::string string;
 
     typedef std::shared_ptr<Album> album_ptr;
     typedef std::shared_ptr<Album const> album_const_ptr;

@@ -1,12 +1,15 @@
 #include <terminal/media/Media.hpp>
 #include <terminal/media/Logger.hpp>
+#include <locale>
 
 namespace media = terminal::media;
 
 extern void import(void);
 
 int main(int argc, char **argv) {
-  media::Log(media::Logger::INFO, L"starting");
+  std::setlocale(std::locale::all, "");
+
+  media::Log(media::Logger::INFO, std::string(u8"starting"));
 
   return 0;
 }

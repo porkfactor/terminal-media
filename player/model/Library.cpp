@@ -22,7 +22,7 @@ namespace terminal {
     }
 
     audio_ptr createAudioResource(album_ptr &album, string const &name) {
-      audio_ptr audio(new AudioResource(album, name, L""));
+      audio_ptr audio(new AudioResource(album, name, ""));
 
       return audio;
     }
