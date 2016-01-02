@@ -1,36 +1,38 @@
-#include <terminal/media/AudioResource.hpp>
+#include <terminal/media/model/AudioResource.hpp>
 
 namespace terminal {
   namespace media {
-    AudioResource::AudioResource(album_ptr album, string const &title, string const &uri) :
-      MediaResource(uri),
-      album_(album),
-      title_(title)
-    {
-    }
+    namespace model {
+      AudioResource::AudioResource(std::shared_ptr<Album> album, string const &title, string const &uri) :
+        MediaResource(uri),
+        album_(album),
+        title_(title)
+      {
+      }
 
-    album_wptr AudioResource::getAlbum() const {
-      return album_;
-    }
+      std::weak_ptr<Album> AudioResource::getAlbum() const {
+        return album_;
+      }
 
-    string const &AudioResource::getTitle() const {
-      return title_;
-    }
+      string const &AudioResource::getTitle() const {
+        return title_;
+      }
 
-    string const &AudioResource::getURI() const {
-      return uri_;
-    }
+      string const &AudioResource::getURI() const {
+        return uri_;
+      }
 
-    void AudioResource::setAlbum(album_ptr album) {
-      album_ = album;
-    }
+      void AudioResource::setAlbum(std::shared_ptr<Album> album) {
+        album_ = album;
+      }
 
-    void AudioResource::setTitle(string const &title) {
-      title_ = title;
-    }
+      void AudioResource::setTitle(string const &title) {
+        title_ = title;
+      }
 
-    void AudioResource::setURI(string const &uri) {
-      uri_ = uri;
+      void AudioResource::setURI(string const &uri) {
+        uri_ = uri;
+      }
     }
   }
 }

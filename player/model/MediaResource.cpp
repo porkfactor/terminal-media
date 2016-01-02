@@ -1,19 +1,21 @@
-#include <terminal/media/MediaResource.hpp>
+#include <terminal/media/model/MediaResource.hpp>
 
 namespace terminal {
   namespace media {
-    MediaResource::MediaResource(string const &uri) :
-      uri_(uri)
-    {
+    namespace model {
+      MediaResource::MediaResource(string const &uri) :
+        uri_(uri)
+      {
 
-    }
+      }
 
-    string const &MediaResource::getUri() const {
-      return uri_;
-    }
+      string const &MediaResource::getUri() const {
+        return uri_;
+      }
 
-    void MediaResource::setUri(string const &uri) {
-      uri_ = uri;
+      void MediaResource::setUri(string const &uri) {
+        uri_ = uri;
+      }
     }
   }
 }

@@ -7,9 +7,11 @@ namespace terminal {
   namespace media {
     class Plugin {
     public:
+      Plugin(string const &);
 
     private:
-      string name_;
+      struct impl;
+      std::unique_ptr<impl> pimpl_;
     };
   }
 }

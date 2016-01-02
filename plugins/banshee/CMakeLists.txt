@@ -1,4 +1,4 @@
-project(terminal-media)
+project(banshee_plugin)
 
 add_definitions(-DDLL__TERMINAL_MEDIA)
 

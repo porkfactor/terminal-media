@@ -1,4 +1,4 @@
-project(terminal-media)
+project(player)
 
 include_directories(
   ${terminal-media_SOURCE_DIR}/include
@@ -11,10 +11,13 @@ add_executable(player
   model/AudioResource.cpp
   model/Library.cpp
   model/MediaResource.cpp
+  system/Logger.cpp
+  system/MediaPlayer.cpp
+  system/Module.cpp
+  system/Plugin.cpp
+  system/PluginManager.cpp
   main.cpp
 )
-
-add_subdirectory(plugins)
 
 target_link_libraries(player
 )

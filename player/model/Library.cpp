@@ -1,30 +1,32 @@
-#include <terminal/media/Library.hpp>
-#include <terminal/media/Album.hpp>
-#include <terminal/media/Artist.hpp>
-#include <terminal/media/AudioResource.hpp>
+#include <terminal/media/model/Library.hpp>
+#include <terminal/media/model/Album.hpp>
+#include <terminal/media/model/Artist.hpp>
+#include <terminal/media/model/AudioResource.hpp>
 
 namespace terminal {
   namespace media {
-    Library::Library() {
+    namespace model {
+      Library::Library() {
 
-    }
+      }
 
-    artist_ptr Library::createArtist(string const &name) {
-      artist_ptr artist(new Artist(name));
+      std::shared_ptr<Artist> Library::createArtist(string const &name) {
+        std::shared_ptr<Artist> artist{ std::make_shared<Artist>(name) };
 
-      return artist;
-    }
+        return artist;
+      }
 
-    album_ptr Library::createAlbum(artist_ptr &artist, string const &name) {
-      album_ptr album(new Album(artist, name));
+      std::shared_ptr<Album> Library::createAlbum(std::shared_ptr<Artist> artist, string const &name) {
+        std::shared_ptr<Album> album{ std::make_shared<Album>(artist, name) };
 
-      return album;
-    }
+        return album;
+      }
 
-    audio_ptr createAudioResource(album_ptr &album, string const &name) {
-      audio_ptr audio(new AudioResource(album, name, ""));
+      std::shared_ptr<AudioResource> createAudioResource(std::shared_ptr<Album> album, string const &name) {
+        std::shared_ptr<AudioResource> audio{ std::make_shared<AudioResource>(album, name, "") };
 
-      return audio;
+        return audio;
+      }
     }
   }
 }

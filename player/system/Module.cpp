@@ -13,7 +13,7 @@ namespace terminal {
 
       typename Module::magic_type magic_;
       typename Module::capabilities_type capabilities_;
-      std::unique_ptr<void *, void (*)(void *)> dl_handle_;
+      std::unique_ptr<void, int (*)(void *)> dl_handle_;
     };
 
     Module::Module(string const &path) :
@@ -23,6 +23,10 @@ namespace terminal {
       } else {
         throw std::runtime_error(dlerror());
       }
+    }
+
+    Module::~Module() {
+
     }
   }
 }
