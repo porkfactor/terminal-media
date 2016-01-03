@@ -3,11 +3,11 @@
 
 namespace plugin = terminal::media::plugin;
 
-extern "C" void PluginInit() {
+extern "C" void Initialize() {
 
 }
 
-extern "C" void PluginDeinit() {
+extern "C" void DeInitialize() {
 
 }
 

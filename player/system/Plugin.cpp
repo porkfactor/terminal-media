@@ -3,18 +3,30 @@
 
 namespace terminal {
   namespace media {
-    struct Plugin::impl {
-      std::unique_ptr<Module> module_;
-    };
-
     Plugin::Plugin(string const &path) :
-      pimpl_(new impl())
+      module_(new Module(path))
     {
-      try {
-        pimpl_->module_.reset(new Module(path));
-      } catch(std::exception &e) {
+      initialize_ = module_->GetMethod<void (void)>("Initialize");
+      deInitialize_ = module_->GetMethod<void (void)>("DeInitialize");
+      createArtefact_ = module_->GetMethod<plugin::IPluginArtefact *(void)>("CreateArtefact");
+      destroyArtefact_ = module_->GetMethod<void (plugin::IPluginArtefact *)>("DestroyArtefact");
+    }
 
-      }
+
+    void Plugin::Initialize() {
+      initialize_();
+    }
+
+    void Plugin::DeInitialize() {
+      deInitialize_();
+    }
+
+    plugin::IPluginArtefact *Plugin::CreateArtefact() {
+      return createArtefact_();
+    }
+
+    void Plugin::DestroyArtefact(plugin::IPluginArtefact *artefact) {
+      destroyArtefact_(artefact);
     }
   }
 }

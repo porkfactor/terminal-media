@@ -1,5 +1,5 @@
 #include <terminal/media/PluginManager.hpp>
-#include <terminal/media/Module.hpp>
+#include <terminal/media/Plugin.hpp>
 #include <terminal/media/Logger.hpp>
 #include <dirent.h>
 
@@ -24,7 +24,7 @@ namespace terminal {
           case DT_REG:
           case DT_LNK:
             try {
-              Module m { path + "/" + string(d->d_name) };
+              Plugin p { path + "/" + string(d->d_name) };
             } catch(std::exception &e) {
               Log(Logger::ERROR, string(e.what()));
             }
