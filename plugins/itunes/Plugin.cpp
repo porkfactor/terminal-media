@@ -20,3 +20,11 @@ extern "C" void registerPlugin(terminal::media::plugin::IRegistrar *registrar) {
   plugin::IPlugin *plugin = registrar->registerPlugin(&iTunesPlugin);
 }
 
+extern "C" terminal::media::plugin::IPluginArtefact *CreateArtefact(void) {
+  return nullptr;
+}
+
+extern "C" void DestroyArtefact(terminal::media::plugin::IPluginArtefact *artefact) {
+
+}
+

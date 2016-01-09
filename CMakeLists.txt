@@ -11,5 +11,7 @@ LIST(APPEND CMAKE_MODULE_PATH
 include(TerminalCommon)
 include(Install)
 
+TTUsePackage(libxml)
+
 add_subdirectory(player)
 add_subdirectory(plugins)

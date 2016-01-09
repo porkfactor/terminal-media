@@ -34,8 +34,12 @@ MACRO(SetConfVariable varName envVarName defaultVal)
   endif()
 ENDMACRO()
 
-
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR} ${CMAKE_CURRENT_LIST_DIR}/Config ${CMAKE_CURRENT_LIST_DIR}/Modules $ENV{CMAKE_CURRENT_LIST_DIR})
+set(CMAKE_MODULE_PATH 
+  ${CMAKE_CURRENT_LIST_DIR} 
+  ${CMAKE_CURRENT_LIST_DIR}/Config 
+  ${CMAKE_CURRENT_LIST_DIR}/Modules 
+  $ENV{CMAKE_CURRENT_LIST_DIR}
+)
 
 if(WIN32)
   FILE(TO_CMAKE_PATH $ENV{USERPROFILE} userProfile)
@@ -45,11 +49,6 @@ else()
 endif()
 
 DUMPVAR(CMAKE_MODULE_PATH)
-
-include(UserVariables OPTIONAL RESULT_VARIABLE userVariablesExists)
-if(NOT userVariablesExists)
-  message(STATUS "UserVariables.cmake not found at:${CMAKE_MODULE_PATH}")
-endif()
 
 include(${CMAKE_CURRENT_LIST_DIR}/SystemVariables.cmake)
 
@@ -72,15 +71,6 @@ if(NOT configFound)
   endif()
 endif()
 #----End configs support section
-
-#----Profiles support section
-set(userProfileName UserProfile)
-include(${userProfileName} OPTIONAL RESULT_VARIABLE userProfileFound)
-if(NOT userProfileFound)
-  message(STATUS "User specific profile file \"${userProfileName}.cmake\" not found at:${CMAKE_MODULE_PATH}")
-endif()
-#----End profiles support section
-
 
 MACRO(MAX RESULT ITEMS)
   SET(LST ${ARGV})
