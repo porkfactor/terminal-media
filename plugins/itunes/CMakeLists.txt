@@ -14,3 +14,7 @@ target_link_libraries(moditunes
   xml2
 )
 
+set_target_properties(moditunes PROPERTIES
+  VERSION 1.0.0
+  SOVERSION 1
+)

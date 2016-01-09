@@ -15,3 +15,7 @@ target_link_libraries(modbanshee
   sqlite3
 )
 
+set_target_properties(modbanshee PROPERTIES
+  VERSION 1.0.0
+  SOVERSION 1
+)

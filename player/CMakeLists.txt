@@ -20,5 +20,6 @@ add_executable(player
 )
 
 target_link_libraries(player
+  dl
 )
 
