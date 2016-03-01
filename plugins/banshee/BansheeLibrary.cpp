@@ -1,5 +1,5 @@
-#include "Library.hpp"
-#include <terminal/media/Logger.hpp>
+#include <terminal/core/Logger.hpp>
+#include "BansheeLibrary.hpp"
 
 namespace terminal {
   namespace media {

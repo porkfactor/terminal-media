@@ -7,8 +7,10 @@ include_directories(
 )
 
 add_library(modbanshee SHARED
-  Library.cpp
+  BansheeFactory.cpp
+  BansheeLibrary.cpp
   Reader.cpp
+  Plugin.cpp
 )
 
 target_link_libraries(modbanshee

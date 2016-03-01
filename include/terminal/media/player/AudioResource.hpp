@@ -1,7 +1,7 @@
 #ifndef INCLUDE_TERMINAL_MEDIA_MODEL_AUDIORESOURCE_HPP_
 #define INCLUDE_TERMINAL_MEDIA_MODEL_AUDIORESOURCE_HPP_
 
-#include <terminal/media/model/MediaResource.hpp>
+#include <terminal/media/player/MediaResource.hpp>
 #include <memory>
 
 namespace terminal {

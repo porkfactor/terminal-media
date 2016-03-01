@@ -1,4 +1,4 @@
-#include <terminal/media/Logger.hpp>
+#include <terminal/core/Logger.hpp>
 #include <chrono>
 #include <iostream>
 #include <iomanip>

@@ -1,4 +1,4 @@
-#include <terminal/media/Module.hpp>
+#include <terminal/media/impl/Module.hpp>
 #include <dlfcn.h>
 
 namespace terminal {
@@ -12,7 +12,7 @@ namespace terminal {
       }
     }
 
-    void *Module::GetSymbol(string const &symbolName) {
+    void *Module::getSymbol(string const &symbolName) {
       void *symbol = nullptr;
       char const *error = 0;
 

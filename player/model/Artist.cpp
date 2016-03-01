@@ -1,6 +1,6 @@
 #include <terminal/media/Media.hpp>
-#include <terminal/media/model/Artist.hpp>
-#include <terminal/media/model/ArtistListener.hpp>
+#include <terminal/media/player/Artist.hpp>
+#include <terminal/media/player/ArtistListener.hpp>
 
 namespace terminal {
   namespace media {

@@ -1,4 +1,5 @@
-#include <system/PluginRegistrar.hpp>
+#include <terminal/media/api/IPlugin.hpp>
+#include "PluginRegistrar.hpp"
 
 namespace terminal {
   namespace media {
@@ -6,10 +7,16 @@ namespace terminal {
 
     }
 
-    plugin::IPlugin *PluginRegistrar::registerPlugin(plugin::PluginInfo const *info) {
-      plugin::IPlugin *rv { nullptr };
+    PluginRegistrar::~PluginRegistrar() {
 
-      return rv;
+    }
+
+    void PluginRegistrar::registerPlugin(api::IPlugin *plugin) {
+      plugin->registerExtensions(this);
+    }
+
+    void PluginRegistrar::registerExtension(api::IExtensionFactory *extension) {
+
     }
   }
 }

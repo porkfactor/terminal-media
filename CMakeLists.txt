@@ -13,5 +13,6 @@ include(Install)
 
 TTUsePackage(libxml)
 
+add_subdirectory(core)
 add_subdirectory(player)
 add_subdirectory(plugins)

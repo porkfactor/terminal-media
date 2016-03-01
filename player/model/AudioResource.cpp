@@ -1,4 +1,4 @@
-#include <terminal/media/model/AudioResource.hpp>
+#include <terminal/media/player/AudioResource.hpp>
 
 namespace terminal {
   namespace media {

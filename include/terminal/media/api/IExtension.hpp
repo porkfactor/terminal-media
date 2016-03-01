@@ -1,12 +1,12 @@
-#ifndef TERMINAL_MEDIA_PLUGIN_IPLUGINARTEFACT_HPP_
-#define TERMINAL_MEDIA_PLUGIN_IPLUGINARTEFACT_HPP_
+#ifndef TERMINAL_MEDIA_PLUGIN_IEXTENSIONARTEFACT_HPP_
+#define TERMINAL_MEDIA_PLUGIN_IEXTENSIONARTEFACT_HPP_
 
 namespace terminal {
   namespace media {
-    namespace plugin {
-      class IPluginArtefact {
+    namespace api {
+      class IExtension {
       public:
-        virtual ~IPluginArtefact() = default;
+        virtual ~IExtension() = default;
 
       private:
         /**

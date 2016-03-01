@@ -1,5 +1,5 @@
-#include <terminal/media/model/Album.hpp>
-#include <terminal/media/model/AudioResource.hpp>
+#include <terminal/media/player/Album.hpp>
+#include <terminal/media/player/AudioResource.hpp>
 
 namespace terminal {
   namespace media {

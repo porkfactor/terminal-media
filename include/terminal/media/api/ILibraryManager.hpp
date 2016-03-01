@@ -1,12 +1,12 @@
 #ifndef TERMINAL_MEDIA_PLUGIN_ILIBRARYMANAGER_HPP_
 #define TERMINAL_MEDIA_PLUGIN_ILIBRARYMANAGER_HPP_
 
-#include <terminal/media/plugin/IPluginArtefact.hpp>
+#include "IExtension.hpp"
 
 namespace terminal {
   namespace media {
-    namespace plugin {
-      class ILibraryManager : public IPluginArtefact {
+    namespace api {
+      class ILibraryManager : public IExtension {
       public:
         virtual ~ILibraryManager() = default;
 

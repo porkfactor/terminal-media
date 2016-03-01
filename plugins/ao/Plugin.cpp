@@ -11,9 +11,9 @@ extern "C" void uninitialize() {
 
 }
 
-static const api::PluginInfo iTunesPlugin = {
+static const api::PluginInfo aoPlugin = {
   api::PluginVersion { 1, 0, 0, 0, },
-  api::PluginType::PLUGIN_LIBRARY_MANAGER,
+  api::PluginType::PLUGIN_AUDIO_INTERFACE,
 };
 
 extern "C" void registerExtensions(api::IPlugin *plugin, api::IRegistrar *registrar) {

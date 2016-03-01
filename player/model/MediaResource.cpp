@@ -1,4 +1,4 @@
-#include <terminal/media/model/MediaResource.hpp>
+#include <terminal/media/player/MediaResource.hpp>
 
 namespace terminal {
   namespace media {

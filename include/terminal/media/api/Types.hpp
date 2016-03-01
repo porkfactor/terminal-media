@@ -5,7 +5,7 @@
 
 namespace terminal {
   namespace media {
-    namespace plugin {
+    namespace api {
       struct PluginVersion {
         uint16_t major_;
         uint16_t minor_;

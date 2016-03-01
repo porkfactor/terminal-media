@@ -1,15 +1,22 @@
 #ifndef PLAYER_SYSTEM_PLUGINREGISTRAR_HPP_
 #define PLAYER_SYSTEM_PLUGINREGISTRAR_HPP_
 
-#include <terminal/media/plugin/IRegistrar.hpp>
+#include <terminal/media/api/IRegistrar.hpp>
 
 namespace terminal {
   namespace media {
-    class PluginRegistrar : public plugin::IRegistrar {
+    namespace api {
+      class IPlugin;
+      class IExtensionFactory;
+    }
+
+    class PluginRegistrar : public api::IRegistrar {
     public:
       PluginRegistrar();
+      virtual ~PluginRegistrar();
 
-      plugin::IPlugin *registerPlugin(struct plugin::PluginInfo const *);
+      void registerPlugin(api::IPlugin *plugin);
+      void registerExtension(api::IExtensionFactory *extension);
 
     private:
     };

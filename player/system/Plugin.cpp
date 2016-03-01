@@ -1,34 +1,55 @@
-#include <terminal/media/Plugin.hpp>
-#include <terminal/media/Module.hpp>
+#include <terminal/media/impl/Plugin.hpp>
+#include <terminal/media/impl/Module.hpp>
+#include <terminal/media/api/IRegistrar.hpp>
+#include <functional>
+
 
 namespace terminal {
   namespace media {
+    struct Plugin::impl {
+      impl(string const &path) : module_(new Module(path))
+      {
+        initialize_ = module_->getMethod<void (void)>("initialize");
+        uninitialize_ = module_->getMethod<void (void)>("uninitialize");
+        registerExtensions_ = module_->getMethod<void(api::IPlugin *, api::IRegistrar *)>("registerExtensions");
+        deregisterExtensions_ = module_->getMethod<void(api::IPlugin *, api::IRegistrar *)>("deregisterExtensions");
+      }
+
+      std::unique_ptr<Module> module_;
+      std::function<void(void)> initialize_;
+      std::function<void(void)> uninitialize_;
+      std::function<void(api::IPlugin *, api::IRegistrar *)> registerExtensions_;
+      std::function<void(api::IPlugin *, api::IRegistrar *)> deregisterExtensions_;
+    };
+
     Plugin::Plugin(string const &path) :
-      module_(new Module(path))
+      pimpl_ { path }
     {
-      initialize_ = module_->GetMethod<void (void)>("Initialize");
-      deInitialize_ = module_->GetMethod<void (void)>("DeInitialize");
-      createArtefact_ = module_->GetMethod<plugin::IPluginArtefact *(void)>("CreateArtefact");
-      destroyArtefact_ = module_->GetMethod<void (plugin::IPluginArtefact *)>("DestroyArtefact");
     }
 
 
-    void Plugin::Initialize() {
-      initialize_();
+    void Plugin::initialize() {
+      if(pimpl_->initialize_) {
+        pimpl_->initialize_();
+      }
     }
 
-    void Plugin::DeInitialize() {
-      deInitialize_();
+    void Plugin::uninitialize() {
+      if(pimpl_->uninitialize_) {
+        pimpl_->uninitialize_();
+      }
     }
 
-    plugin::IPluginArtefact *Plugin::CreateArtefact() {
-      return createArtefact_();
+    void Plugin::registerExtensions(api::IRegistrar *registrar) {
+      if(pimpl_->registerExtensions_) {
+        pimpl_->registerExtensions_(this, registrar);
+      }
     }
 
-    void Plugin::DestroyArtefact(plugin::IPluginArtefact *artefact) {
-      destroyArtefact_(artefact);
+    void Plugin::deregisterExtensions(api::IRegistrar *registrar) {
+      if(pimpl_->deregisterExtensions_) {
+        pimpl_->deregisterExtensions_(this, registrar);
+      }
     }
   }
 }
-
-

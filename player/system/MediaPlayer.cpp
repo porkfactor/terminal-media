@@ -1,5 +1,6 @@
-#include <terminal/media/MediaPlayer.hpp>
-#include <terminal/media/PluginManager.hpp>
+#include <terminal/media/player/MediaPlayer.hpp>
+#include <terminal/media/impl/PluginManager.hpp>
+#include "PluginRegistrar.hpp"
 #include <unistd.h>
 
 namespace terminal {
@@ -11,7 +12,8 @@ namespace terminal {
     }
 
     void MediaPlayer::Execute() {
-      PluginManager pluginManager;
+      PluginRegistrar registrar;
+      PluginManager pluginManager(&registrar);
 
       pluginManager.ScanDirectory(pluginDirectory_);
     }

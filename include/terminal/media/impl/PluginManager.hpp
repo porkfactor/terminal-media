@@ -5,14 +5,19 @@
 
 namespace terminal {
   namespace media {
+    namespace api {
+      class IRegistrar;
+    }
+
     class PluginManager {
     public:
-      PluginManager();
+      PluginManager(api::IRegistrar *);
 
       void Load(string const &);
       void ScanDirectory(string const &);
 
     private:
+      api::IRegistrar *registrar_;
     };
   }
 }

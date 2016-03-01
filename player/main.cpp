@@ -1,5 +1,5 @@
-#include <terminal/media/MediaPlayer.hpp>
-#include <terminal/media/Logger.hpp>
+#include <terminal/media/player/MediaPlayer.hpp>
+#include <terminal/core/Logger.hpp>
 #include <clocale>
 #include <locale>
 

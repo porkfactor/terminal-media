@@ -16,16 +16,16 @@ namespace terminal {
 
       Module(string const &path);
 
-      magic_type GetMagic() const;
-      capabilities_type GetCapabilities() const;
+      magic_type getMagic() const;
+      capabilities_type getCapabilities() const;
 
       template<class T>
-      std::function<T> GetMethod(string const &functionName) {
-        return reinterpret_cast<T *>(GetSymbol(functionName));
+      std::function<T> getMethod(string const &functionName) {
+        return reinterpret_cast<T *>(getSymbol(functionName));
       }
 
     protected:
-      void *GetSymbol(string const &symbolName);
+      void *getSymbol(string const &symbolName);
 
     private:
       std::unique_ptr<void, std::function<int (void *)>> dl_handle_;

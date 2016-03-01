@@ -1,17 +1,20 @@
 #ifndef TERMINAL_MEDIA_PLUGIN_IREGISTRAR_HPP_
 #define TERMINAL_MEDIA_PLUGIN_IREGISTRAR_HPP_
 
-#include <terminal/media/plugin/Types.hpp>
-#include <terminal/media/plugin/IPlugin.hpp>
+#include <terminal/media/api/Types.hpp>
 
 namespace terminal {
   namespace media {
-    namespace plugin {
+    namespace api {
+      class IPlugin;
+      class IExtensionFactory;
+
       class IRegistrar {
       public:
         virtual ~IRegistrar() = default;
 
-        virtual IPlugin *registerPlugin(struct PluginInfo const *info) = 0;
+        virtual void registerPlugin(IPlugin *plugin) = 0;
+        virtual void registerExtension(IExtensionFactory *extension) = 0;
 
       private:
       };

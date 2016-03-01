@@ -1,16 +1,26 @@
-#include <terminal/media/PluginManager.hpp>
-#include <terminal/media/Plugin.hpp>
-#include <terminal/media/Logger.hpp>
+#include <terminal/media/impl/PluginManager.hpp>
+#include <terminal/media/impl/Plugin.hpp>
+#include <terminal/media/api/IRegistrar.hpp>
+#include <terminal/core/Logger.hpp>
 #include <dirent.h>
+
+namespace api = terminal::media::api;
 
 namespace terminal {
   namespace media {
-    PluginManager::PluginManager() {
+    PluginManager::PluginManager(api::IRegistrar *registrar) :
+      registrar_(registrar)
+    {
 
     }
 
-    void PluginManager::Load(string const &name) {
-
+    void PluginManager::Load(string const &path) {
+      try {
+        Plugin *p { new Plugin { path } };
+        registrar_->registerPlugin(p);
+      } catch(std::exception &e) {
+        Log(Logger::ERROR, string(e.what()));
+      }
     }
 
     void PluginManager::ScanDirectory(string const &path) {
@@ -23,11 +33,7 @@ namespace terminal {
           switch(d->d_type) {
           case DT_REG:
           case DT_LNK:
-            try {
-              Plugin p { path + "/" + string(d->d_name) };
-            } catch(std::exception &e) {
-              Log(Logger::ERROR, string(e.what()));
-            }
+            Load(path + "/" + string(d->d_name));
             break;
 
           default:
