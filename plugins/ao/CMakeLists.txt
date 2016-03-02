@@ -12,6 +12,7 @@ add_library(modao SHARED
 )
 
 target_link_libraries(modao
+  ao
 )
 
 set_target_properties(modao PROPERTIES

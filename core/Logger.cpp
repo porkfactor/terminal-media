@@ -19,12 +19,12 @@ namespace terminal {
       std::time_t now_c = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
       char buf[64];
 
-      std::strftime(buf, sizeof(buf), "%c %Z", std::localtime(&now_c));
+      std::strftime(buf, sizeof(buf), "%T %Z", std::localtime(&now_c));
 
       std::cout
-        << u8"LOG : "
         << buf
-        << u8" : " << format.c_str()
+        << u8" [ LOG ] "
+        << format.c_str()
         << std::endl;
     }
   }
