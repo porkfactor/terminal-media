@@ -2,6 +2,7 @@
 #define TERMINAL_MEDIA_MODULE_HPP_
 
 #include <terminal/media/Media.hpp>
+#include <memory>
 #include <functional>
 #include <cstdint>
 

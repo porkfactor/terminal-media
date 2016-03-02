@@ -1,8 +1,7 @@
 #ifndef INCLUDE_TERMINAL_MEDIA_MEDIA_HPP_
 #define INCLUDE_TERMINAL_MEDIA_MEDIA_HPP_
 
-#include <string>
-#include <memory>
+#include <terminal/media/api/Types.hpp>
 
 namespace terminal {
   namespace media {
@@ -10,7 +9,7 @@ namespace terminal {
     class Artist;
     class AudioResource;
 
-    typedef std::string string;
+    typedef terminal::media::api::string string;
   }
 }
 

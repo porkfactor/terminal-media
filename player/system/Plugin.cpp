@@ -25,8 +25,12 @@ namespace terminal {
     Plugin::Plugin(string const &path) :
       pimpl_ { path }
     {
+      initialize();
     }
 
+    Plugin::~Plugin() {
+      uninitialize();
+    }
 
     void Plugin::initialize() {
       if(pimpl_->initialize_) {

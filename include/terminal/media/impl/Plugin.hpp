@@ -13,7 +13,7 @@ namespace terminal {
     class Plugin : public api::IPlugin {
     public:
       Plugin(string const &path);
-      ~Plugin() = default;
+      ~Plugin();
 
       void initialize() override;
       void uninitialize() override;

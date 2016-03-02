@@ -6,6 +6,7 @@ namespace terminal {
     namespace api {
       class IExtension;
       class IPlugin;
+      struct ExtensionInfo;
 
       class IExtensionFactory {
       public:
@@ -13,6 +14,9 @@ namespace terminal {
         virtual ~IExtensionFactory() = default;
 
         IPlugin *getPlugin() const { return plugin_; };
+
+        virtual ExtensionInfo const *getExtensionInfo() const = 0;
+
         /**
          * Manufacture a new Artefact.
          *

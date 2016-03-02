@@ -2,6 +2,7 @@
 #define AOPLAYER_HPP_
 
 #include <terminal/media/api/IAudioPlayer.hpp>
+#include <memory>
 
 namespace plugin = terminal::media::plugin;
 

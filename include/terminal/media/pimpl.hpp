@@ -12,7 +12,9 @@ public:
   template<typename ...Args>
   pimpl(Args&& ...args) : ptr_ { new T { std::forward<Args>(args)... } } { };
   T *operator->() { return ptr_.get(); };
+  T const *operator->() const { return ptr_.get(); };
   T &operator*() { return *ptr_.get(); };
+  T const &operator*() const { return *ptr_.get(); };
 
 private:
   std::unique_ptr<T> ptr_;

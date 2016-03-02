@@ -2,17 +2,21 @@
 #define TERMINAL_MEDIA_PLUGIN_TYPES_HPP_
 
 #include <cstdint>
+#include <array>
 
 namespace terminal {
   namespace media {
     namespace api {
-      struct PluginVersion {
+      typedef std::string string;
+      typedef std::array<uint8_t, 16> uuid_type;
+
+      struct Version {
         uint16_t major_;
         uint16_t minor_;
         uint16_t release_;
         uint16_t build_;
 
-        PluginVersion(uint16_t major, uint16_t minor, uint16_t release, uint16_t build) :
+        Version(uint16_t major, uint16_t minor, uint16_t release, uint16_t build) :
           major_(major),
           minor_(minor),
           release_(release),
@@ -20,29 +24,33 @@ namespace terminal {
         {
         }
 
-        PluginVersion(uint16_t major, uint16_t minor, uint16_t release) :
-          PluginVersion(major, minor, release, 0)
+        Version(uint16_t major, uint16_t minor, uint16_t release) :
+          Version(major, minor, release, 0)
         {
         }
 
-        PluginVersion(uint16_t major, uint16_t minor) :
-          PluginVersion(major, minor, 0, 0)
+        Version(uint16_t major, uint16_t minor) :
+          Version(major, minor, 0, 0)
         {
         }
       };
 
-      struct PluginUUID {
-        uint8_t uuid_[16];
+      enum class ExtensionType {
+        EXTENSION_LIBRARY_MANAGER = (1 << 0),
+        EXTENSION_AUDIO_INTERFACE = (1 << 1),
       };
 
-      enum class PluginType {
-        PLUGIN_LIBRARY_MANAGER = (1 << 0),
-        PLUGIN_AUDIO_INTERFACE = (1 << 1),
+      struct ExtensionInfo {
+        Version version;
+        ExtensionType type;
+        uuid_type uuid;
+        string name;
       };
 
       struct PluginInfo {
-        PluginVersion version;
-        PluginType type;
+        Version version;
+        uuid_type uuid;
+        string name;
       };
     }
   }

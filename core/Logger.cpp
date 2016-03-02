@@ -15,7 +15,7 @@ namespace terminal {
       return instance_;
     }
 
-    void Logger::Log(severity_type, string const &format) {
+    void Logger::Log(severity_type, api::string const &format) {
       std::time_t now_c = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
       char buf[64];
 

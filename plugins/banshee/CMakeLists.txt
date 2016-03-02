@@ -14,6 +14,7 @@ add_library(modbanshee SHARED
 )
 
 target_link_libraries(modbanshee
+  libterminal-core
   sqlite3
 )
 

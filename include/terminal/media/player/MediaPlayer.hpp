@@ -12,8 +12,8 @@ namespace terminal {
       void Execute();
 
     private:
-      string workingDirectory_;
-      string pluginDirectory_;
+      api::string workingDirectory_;
+      api::string pluginDirectory_;
     };
   }
 }

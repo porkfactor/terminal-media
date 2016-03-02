@@ -14,6 +14,10 @@ namespace terminal {
 
       }
 
+      terminal::media::api::ExtensionInfo const *BansheeFactory::getExtensionInfo() const {
+        return BansheeLibrary::getExtensionInfo();
+      }
+
       terminal::media::api::IExtension *BansheeFactory::createExtension() {
         return new BansheeLibrary();
       }

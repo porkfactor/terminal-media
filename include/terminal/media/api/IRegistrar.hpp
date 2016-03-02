@@ -7,6 +7,7 @@ namespace terminal {
   namespace media {
     namespace api {
       class IPlugin;
+      class IExtension;
       class IExtensionFactory;
 
       class IRegistrar {
@@ -15,6 +16,9 @@ namespace terminal {
 
         virtual void registerPlugin(IPlugin *plugin) = 0;
         virtual void registerExtension(IExtensionFactory *extension) = 0;
+
+        virtual IExtension *createExtension(ExtensionType type, string const &name) const = 0;
+        virtual IExtension *createExtension(uuid_type const &uuid) const = 0;
 
       private:
       };

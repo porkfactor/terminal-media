@@ -10,8 +10,8 @@ namespace terminal {
       public:
         virtual ~ILibraryManager() = default;
 
-        void open();
-        void close();
+        virtual void open() = 0;
+        virtual void close() = 0;
 
       private:
       };

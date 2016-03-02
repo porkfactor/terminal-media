@@ -1,7 +1,7 @@
 #ifndef INCLUDE_TERMINAL_MEDIA_LOGGER_HPP_
 #define INCLUDE_TERMINAL_MEDIA_LOGGER_HPP_
 
-#include <terminal/media/Media.hpp>
+#include <terminal/media/api/Types.hpp>
 
 namespace terminal {
   namespace media {
@@ -20,7 +20,7 @@ namespace terminal {
 
       Logger();
 
-      void Log(severity_type, string const &);
+      void Log(severity_type, api::string const &);
 
       static Logger &instance();
 
@@ -28,7 +28,7 @@ namespace terminal {
       static Logger instance_;
     };
 
-    static inline void Log(Logger::severity_type severity, string const &format) {
+    static inline void Log(Logger::severity_type severity, api::string const &format) {
       Logger::instance().Log(severity, format);
     }
   }

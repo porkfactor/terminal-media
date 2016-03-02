@@ -1,8 +1,9 @@
 #ifndef INCLUDE_TERMINAL_MEDIA_MODEL_LIBRARY_HPP_
 #define INCLUDE_TERMINAL_MEDIA_MODEL_LIBRARY_HPP_
 
-#include <vector>
 #include <terminal/media/Media.hpp>
+#include <memory>
+#include <vector>
 
 namespace terminal {
   namespace media {
