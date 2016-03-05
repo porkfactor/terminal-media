@@ -1,7 +1,8 @@
 #include <terminal/media/api/IRegistrar.hpp>
 #include <terminal/media/api/IPlugin.hpp>
 #include <terminal/core/Logger.hpp>
-#include "BansheeFactory.hpp"
+
+#include "ExtensionFactory.hpp"
 
 namespace api = terminal::media::api;
 
@@ -20,7 +21,7 @@ static const api::PluginInfo bansheePlugin = {
 
 extern "C" void registerExtensions(api::IPlugin *plugin, api::IRegistrar *registrar) {
   terminal::media::Log(terminal::media::Logger::INFO, std::string(u8"modbanshee : registerExtensions()"));
-  registrar->registerExtension(new terminal::media::banshee::BansheeFactory(plugin));
+  registrar->registerExtension(new terminal::media::banshee::ExtensionFactory(plugin));
 }
 
 extern "C" void deregisterExtensions(api::IPlugin *plugin, api::IRegistrar *registrar) {

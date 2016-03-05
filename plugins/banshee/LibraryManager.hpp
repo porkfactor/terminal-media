@@ -11,12 +11,12 @@ namespace terminal {
     }
 
     namespace banshee {
-      class BansheeLibrary : public terminal::media::api::ILibraryManager {
+      class LibraryManager : public terminal::media::api::ILibraryManager {
       public:
-        BansheeLibrary();
+        LibraryManager();
 
-        virtual void open();
-        virtual void close();
+        void importLibrary() override;
+        void exportLibrary() override;
 
         static terminal::media::api::ExtensionInfo const *getExtensionInfo();
 

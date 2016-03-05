@@ -7,8 +7,12 @@ include_directories(
 )
 
 add_library(modbanshee SHARED
-  BansheeFactory.cpp
-  BansheeLibrary.cpp
+  model/banshee/Album.cpp
+  model/banshee/Artist.cpp
+  model/banshee/AudioResource.cpp
+  model/banshee/Library.cpp
+  ExtensionFactory.cpp
+  LibraryManager.cpp
   Reader.cpp
   Plugin.cpp
 )

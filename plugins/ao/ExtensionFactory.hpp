@@ -1,19 +1,15 @@
-#ifndef BANSHEEFACTORY_HPP_
-#define BANSHEEFACTORY_HPP_
+#ifndef EXTENSIONFACTORY_HPP_
+#define EXTENSIONFACTORY_HPP_
 
 #include <terminal/media/api/IExtensionFactory.hpp>
 
 namespace terminal {
   namespace media {
-    namespace api {
-      class IExtension;
-    }
-
-    namespace banshee {
-      class BansheeFactory : public terminal::media::api::IExtensionFactory {
+    namespace ao {
+      class ExtensionFactory : public terminal::media::api::IExtensionFactory {
       public:
-        BansheeFactory(terminal::media::api::IPlugin *);
-        ~BansheeFactory();
+        ExtensionFactory(terminal::media::api::IPlugin *);
+        ~ExtensionFactory();
 
         terminal::media::api::ExtensionInfo const *getExtensionInfo() const override;
         terminal::media::api::IExtension *createExtension() override;

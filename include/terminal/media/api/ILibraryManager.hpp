@@ -1,7 +1,7 @@
 #ifndef TERMINAL_MEDIA_PLUGIN_ILIBRARYMANAGER_HPP_
 #define TERMINAL_MEDIA_PLUGIN_ILIBRARYMANAGER_HPP_
 
-#include "IExtension.hpp"
+#include <terminal/media/api/IExtension.hpp>
 
 namespace terminal {
   namespace media {
@@ -10,8 +10,8 @@ namespace terminal {
       public:
         virtual ~ILibraryManager() = default;
 
-        virtual void open() = 0;
-        virtual void close() = 0;
+        virtual void importLibrary() = 0;
+        virtual void exportLibrary() = 0;
 
       private:
       };

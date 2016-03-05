@@ -5,11 +5,11 @@ include_directories(
 )
 
 add_executable(player
-  model/Album.cpp
-  model/Artist.cpp
-  model/AudioResource.cpp
-  model/Library.cpp
-  model/MediaResource.cpp
+  model/AbstractAlbum.cpp
+  model/AbstractArtist.cpp
+  model/AbstractAudioResource.cpp
+  model/AbstractLibrary.cpp
+  model/AbstractMediaResource.cpp
   system/MediaPlayer.cpp
   system/Module.cpp
   system/Plugin.cpp

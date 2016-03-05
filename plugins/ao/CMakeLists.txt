@@ -7,7 +7,8 @@ include_directories(
 )
 
 add_library(modao SHARED
-  AOPlayer.cpp
+  AudioPlayer.cpp
+  ExtensionFactory.cpp
   Plugin.cpp
 )
 

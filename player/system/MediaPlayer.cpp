@@ -21,10 +21,10 @@ namespace terminal {
       pluginManager->ScanDirectory(pluginDirectory_);
 
       auto extension = registrar->createExtension(api::ExtensionType::EXTENSION_LIBRARY_MANAGER, u8"banshee");
-      api::ILibraryManager *library = nullptr;
+      api::ILibraryManager *libraryManager = nullptr;
 
-      if((library = dynamic_cast<decltype(library)>(extension)) != nullptr) {
-        library->open( /* TODO: insert configuration */ );
+      if((libraryManager = dynamic_cast<decltype(libraryManager)>(extension)) != nullptr) {
+        libraryManager->importLibrary( /* TODO: insert configuration */ );
         media::Log(media::Logger::INFO, "loaded an extension!");
       } else {
         media::Log(media::Logger::ERROR, "failed to load extension");

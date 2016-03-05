@@ -39,7 +39,6 @@ namespace terminal {
     public:
       Profile();
 
-
     private:
     };
 
@@ -48,8 +47,6 @@ namespace terminal {
     private:
       std::vector<IAttribute> attributes_;
     };
-
-
 
     Profile::Profile() {
 
